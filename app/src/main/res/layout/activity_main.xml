@@ -1,16 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="io.github.triumphantakash.thatsrightbuddy.MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:weightSum="100">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="90"
+        tools:context=".MainActivity"
+        android:orientation="vertical"
+        android:weightSum="100">
+        <ScrollView
+            android:id="@+id/SCROLLER_ID"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:scrollbars="vertical"
+            android:fillViewport="true">
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="left"
+                android:layout_height="match_parent"
+                android:id="@+id/status"
+                android:scrollbars="vertical"
+                android:textColor="@android:color/darker_gray"
+                android:textAppearance="@android:style/TextAppearance.Small"
+                android:hint="your friends' messages here.."/>
+        </ScrollView>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:weightSum="100">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="70"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/editText" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="30"
+            android:text="send"
+            android:id="@+id/contactServer" />
+    </LinearLayout>
+
+</LinearLayout>
