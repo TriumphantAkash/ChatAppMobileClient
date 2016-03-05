@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".activities.MainActivity"
     android:orientation="vertical"
     android:weightSum="100">
 
@@ -10,8 +10,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="90"
-        tools:context=".MainActivity"
+        android:layout_weight="80"
+        tools:context=".activities.MainActivity"
         android:orientation="vertical"
         android:weightSum="100">
         <ScrollView
@@ -38,7 +38,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="20"
         android:weightSum="100">
 
         <EditText
