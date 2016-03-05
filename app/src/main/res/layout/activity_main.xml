@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:gravity="left"
                 android:layout_height="match_parent"
-                android:id="@+id/status"
+                android:id="@+id/text_friends"
                 android:scrollbars="vertical"
                 android:textColor="@android:color/darker_gray"
                 android:textAppearance="@android:style/TextAppearance.Small"
@@ -47,14 +47,14 @@
             android:layout_weight="70"
             android:inputType="textMultiLine"
             android:ems="10"
-            android:id="@+id/editText" />
+            android:id="@+id/text_my" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="30"
-            android:text="send"
-            android:id="@+id/contactServer" />
+            android:text="SEND"
+            android:id="@+id/button_send" />
     </LinearLayout>
 
 </LinearLayout>
