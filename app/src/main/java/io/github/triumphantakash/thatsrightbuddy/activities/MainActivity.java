@@ -116,13 +116,14 @@ public class MainActivity extends AppCompatActivity {
                 socketWriteThread.start();
 
                 inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                ClientSocketReader socketReadThread = new ClientSocketReader(inFromServer, mHandler);
+                ClientSocketReader socketReadThread = new ClientSocketReader(inFromServer, mHandler, getApplicationContext());
                 socketReadThread.start();
 
                 socketWriteThread.join();
-                //socketReadThread.join();
+                socketReadThread.join();
             } catch (IOException e) {
                 e.printStackTrace();
+                Toast.makeText(getApplicationContext(), "server is not up", Toast.LENGTH_LONG).show();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

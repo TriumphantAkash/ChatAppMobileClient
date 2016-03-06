@@ -1,10 +1,12 @@
 package io.github.triumphantakash.thatsrightbuddy.threads;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,9 +21,11 @@ public class ClientSocketReader extends Thread{
     String message;
     Handler referenceHandler;
     Bundle bundle;
-    public ClientSocketReader(BufferedReader inFromServer, Handler handler) {
+    Context mainActivityContext;
+    public ClientSocketReader(BufferedReader inFromServer, Handler handler, Context context) {
         this.inFromServer = inFromServer;
         this.referenceHandler = handler;
+        mainActivityContext = context;
     }
     public void run(){
         Looper.prepare();
@@ -32,6 +36,10 @@ public class ClientSocketReader extends Thread{
                 Thread.sleep(1000);
                 msg = Message.obtain();
                 message = inFromServer.readLine();	//a new message is arrived
+                if(message.equals(null)){
+                    Toast.makeText(mainActivityContext, "server went down", Toast.LENGTH_LONG).show();
+                    break;
+                }
                 bundle = new Bundle();
                 bundle.putString("msg" ,message+"\n");
                 msg.setData(bundle);
