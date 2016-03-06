@@ -31,6 +31,7 @@ public class ClientSocketReader extends Thread{
             while(true){
                 Thread.sleep(1000);
                 message = inFromServer.readLine();	//a new message is arrived
+                bundle = new Bundle();
                 bundle.putString("FRIEND: ", message);
                 msg.setData(bundle);
                 referenceHandler.sendMessage(msg);
