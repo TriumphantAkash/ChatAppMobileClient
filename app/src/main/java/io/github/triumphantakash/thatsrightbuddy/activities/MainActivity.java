@@ -1,6 +1,7 @@
 package io.github.triumphantakash.thatsrightbuddy.activities;
 
 import android.os.Handler;
+import android.os.Message;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 myText.setText("");
             }
         });
-        /*
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -49,13 +50,13 @@ public class MainActivity extends AppCompatActivity {
                     Looper.prepare();
                 }
                 mHandler = new Handler() {
-                    public void handleMessage(String msg) {
-                        friendsText.append(msg);
+                    public void handleMessage(Message msg) {
+                        friendsText.append(msg.getData().getString("msg"));
                     }
                 };
             }
         });
-*/
+
       ManagerThread managerThread = new ManagerThread();
         managerThread.start();
 //        try {
@@ -114,9 +115,9 @@ public class MainActivity extends AppCompatActivity {
                 ClientSocketWriter socketWriteThread = new ClientSocketWriter(outToServer);
                 socketWriteThread.start();
 
-//                inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-//                ClientSocketReader socketReadThread = new ClientSocketReader(inFromServer, mHandler);
-//                socketReadThread.start();
+                inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                ClientSocketReader socketReadThread = new ClientSocketReader(inFromServer, mHandler);
+                socketReadThread.start();
 
                 socketWriteThread.join();
                 //socketReadThread.join();

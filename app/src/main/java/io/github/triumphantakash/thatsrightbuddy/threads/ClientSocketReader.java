@@ -25,14 +25,15 @@ public class ClientSocketReader extends Thread{
     }
     public void run(){
         Looper.prepare();
-        msg = new Message();
+
         try {
             System.out.println("client reader thread is up and running");
             while(true){
                 Thread.sleep(1000);
+                msg = Message.obtain();
                 message = inFromServer.readLine();	//a new message is arrived
                 bundle = new Bundle();
-                bundle.putString("FRIEND: ", message);
+                bundle.putString("msg" ,message+"\n");
                 msg.setData(bundle);
                 referenceHandler.sendMessage(msg);
                 Log.i("****TAG****", "SERVER: " + message + "\n");
