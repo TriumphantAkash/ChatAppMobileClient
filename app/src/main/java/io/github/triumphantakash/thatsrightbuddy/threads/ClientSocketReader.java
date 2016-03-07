@@ -36,7 +36,7 @@ public class ClientSocketReader extends Thread{
                 Thread.sleep(1000);
                 msg = Message.obtain();
                 message = inFromServer.readLine();	//a new message is arrived
-                if(message.equals(null)){
+                if(message == null){
                     Toast.makeText(mainActivityContext, "server went down", Toast.LENGTH_LONG).show();
                     break;
                 }

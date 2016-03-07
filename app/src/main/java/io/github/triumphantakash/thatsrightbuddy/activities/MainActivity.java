@@ -108,9 +108,10 @@ public class MainActivity extends AppCompatActivity {
     public class ManagerThread extends Thread{
 
         public void run() {
+            Looper.prepare();
             Socket clientSocket = null;
             try {
-                clientSocket = new Socket("192.168.0.20", 6970);
+                clientSocket = new Socket("192.168.0.26", 6970);
                 outToServer = new DataOutputStream(clientSocket.getOutputStream());
                 ClientSocketWriter socketWriteThread = new ClientSocketWriter(outToServer);
                 socketWriteThread.start();
@@ -126,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "server is not up", Toast.LENGTH_LONG).show();
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                Toast.makeText(getApplicationContext(), "server is not up", Toast.LENGTH_LONG).show();
             }
         }
     }
