@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">That\'sRightBuddy</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 </resources>

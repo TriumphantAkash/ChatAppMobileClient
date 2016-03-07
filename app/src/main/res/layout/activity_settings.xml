@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+android:paddingBottom="@dimen/activity_vertical_margin"
+tools:context="com.kodiakptt.optimizeptt.optimizeptt.activities.SettingsActivity">
+<TextView android:text="'That's Right Buddy' is an Android application that let you talk to all of your friends connected in the same local network. It basically broadcasts ecery message to everyone, the sourcecode for the server is at https://github.com/TriumphantAkash/ChatAppServer" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="18dp"
+    android:textColor="@android:color/darker_gray"
+    android:id="@+id/text1"/>
+
+<TextView
+    android:paddingTop="10dp"
+    android:autoLink="web"
+    android:text="    The server can be hosted on Any machine running java. We hosted the server on a Raspberry Pi connected to our home wifi Router. Please visit http://triumphantAkash.github.com for more information" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="18dp"
+    android:textColor="@android:color/darker_gray"
+    android:layout_below="@id/text1"
+    android:id="@+id/text2"/>
+
+
+<TextView android:text="A hobby project by TriumphantAkash" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
