@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myPassableText = "FRIEND : " + myText.getText() + "";
+                MainActivity.myPassableText = "FRIEND : " + myText.getText() + "";
                 myText.setText("");
             }
         });
@@ -85,6 +85,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        MainActivity.myPassableText = "exiting"+"\n";
+        super.onDestroy();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -123,10 +129,10 @@ public class MainActivity extends AppCompatActivity {
                 //  messageBufferedReader = new BufferedReader( new InputStreamReader(message));
                 try {
                     //   message = messageBufferedReader.readLine();
-                    if(!myPassableText.equals("")) {
+                    if(!MainActivity.myPassableText.equals("")) {
                        // System.out.print("you: ");
-                        outToServer.writeBytes(myPassableText + "\n");
-                        myPassableText = "";
+                        outToServer.writeBytes(MainActivity.myPassableText + "\n");
+                        MainActivity.myPassableText = "";
                     }
 
                 } catch (IOException e) {
