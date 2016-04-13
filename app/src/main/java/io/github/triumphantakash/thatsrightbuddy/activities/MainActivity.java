@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             Looper.prepare();
             Socket clientSocket = null;
             try {
-                clientSocket = new Socket("192.168.0.26", 6970);
+                clientSocket = new Socket("54.165.223.205", 6970);
                 outToServer = new DataOutputStream(clientSocket.getOutputStream());
                 ClientSocketWriter socketWriteThread = new ClientSocketWriter(outToServer);
                 socketWriteThread.start();
